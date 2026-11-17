@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andrew Mamposte | BSIT Portfolio</title>
+  <meta name="description" content="Online portfolio of Andrew Mamposte, BSIT student at Mindoro State University.">
+
+  <!-- Fonts from Google Fonts (needs internet; a backup font is used if offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- External stylesheet: all the design is in style.css -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Header and navigation (links jump to the sections below) ===== -->
+  <header class="site-header" id="top">
+    <div class="logo"><a href="#home">Andrew<span class="dot">.</span>M</a></div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HOME ===== -->
+    <section class="container page-section" id="home">
+      <div class="hero">
+        <div>
+          <p class="hello">Hello, I am</p>
+          <h1>Andrew <span>Mamposte</span></h1>
+          <p class="tagline">
+            First-year BSIT student at Mindoro State University. I love online games,
+            and I am studying information technology to become a game developer.
+          </p>
+          <div class="btn-row">
+            <a class="btn" href="#portfolio">View My Work</a>
+            <a class="btn outline" href="#contact">Contact Me</a>
+          </div>
+        </div>
+        <!-- Profile picture: replace images/profile.jpg to change it -->
+        <img class="photo" src="images/profile.jpg" alt="Formal portrait of Andrew Mamposte wearing a black suit and tie">
+      </div>
+
+      <div class="facts" aria-label="Quick facts">
+        <div class="fact"><strong>BSIT &ndash; Year 1</strong><span>Mindoro State University (MINSU)</span></div>
+        <div class="fact"><strong>Goal</strong><span>Become a game developer</span></div>
+        <div class="fact"><strong>Tools</strong><span>Canva, HTML, CSS, basic programming</span></div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="container page-section" id="about">
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about-top">
+        <img class="photo" src="images/profile.jpg" alt="Portrait of Andrew Mamposte">
+        <div>
+          <h3>Who I Am</h3>
+          <p>
+            I am Andrew Mamposte, a first-year Bachelor of Science in Information Technology
+            (BSIT) student. I enjoy playing online games, and that interest is the reason I chose
+            this course: I want to become a game developer.
+          </p>
+          <p>
+            My goal is to build strong information technology skills that I can use in my future
+            career, starting with the basics of programming, networking, and web design.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Education</h3>
+      <div class="grid">
+        <article class="card">
+          <p class="meta">Present</p>
+          <h3>Bachelor of Science in Information Technology</h3>
+          <p>Mindoro State University (MINSU) &ndash; First Year</p>
+        </article>
+        <article class="card">
+          <p class="meta">Senior High School</p>
+          <h3>Apitong National High School</h3>
+          <p>Graduated from senior high school.</p>
+        </article>
+      </div>
+
+      <h3 class="sub-title">Experience</h3>
+      <article class="card">
+        <p class="meta">Hands-on learning</p>
+        <h3>School Projects and Laboratory Activities</h3>
+        <p>
+          I have no professional IT work experience yet. My experience so far comes from
+          school projects and lab activities, such as building a calculator and an ATM
+          project, making a network cable with RJ45 connectors, and creating this portfolio
+          website using HTML and CSS.
+        </p>
+      </article>
+
+      <h3 class="sub-title">Skills</h3>
+      <ul class="skill-list">
+        <li>Canva</li>
+        <li>Basic Programming</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Network Cable Crimping</li>
+      </ul>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section class="container page-section" id="portfolio">
+      <h2 class="section-title">My Portfolio</h2>
+      <p class="section-intro">Projects and activities I completed during my first year in BSIT.</p>
+
+      <div class="grid">
+
+        <article class="card">
+          <img class="thumb" src="images/project-calculator.jpg" alt="Placeholder image for the Calculator project">
+          <p class="meta">School Project</p>
+          <h3>Calculator</h3>
+          <p>A calculator made for a programming class that performs basic arithmetic operations.</p>
+          <span class="project-tag">Basic Programming</span>
+        </article>
+
+        <article class="card">
+          <img class="thumb" src="images/project-atm.jpg" alt="Placeholder image for the ATM project">
+          <p class="meta">School Project</p>
+          <h3>ATM Program</h3>
+          <p>A project that simulates the basic functions of an ATM, built to practice program logic and user input.</p>
+          <span class="project-tag">Basic Programming</span>
+        </article>
+
+        <article class="card">
+          <img class="thumb" src="images/project-cable.jpg" alt="Placeholder image for the network cable crimping activity">
+          <p class="meta">Laboratory Activity</p>
+          <h3>Network Cable Crimping</h3>
+          <p>Hands-on activity where I attached RJ45 connectors to a network (UTP) cable using a crimping tool.</p>
+          <span class="project-tag">Computer Networking</span>
+        </article>
+
+        <article class="card">
+          <img class="thumb" src="images/project-website.jpg" alt="Placeholder image for this portfolio website">
+          <p class="meta">Hands-on Activity 7.1</p>
+          <h3>Online Portfolio Website</h3>
+          <p>This website. It is built with HTML for the structure and an external CSS stylesheet for the design.</p>
+          <span class="project-tag">HTML</span> <span class="project-tag">CSS</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="container page-section" id="contact">
+      <h2 class="section-title">Contact Me</h2>
+      <p class="section-intro">Want to say hello or ask something? Send me a message or use the details below.</p>
+
+      <div class="contact-layout">
+
+        <!-- Contact details -->
+        <div>
+          <h3>Get in Touch</h3>
+          <ul class="contact-list">
+            <li><strong>Email</strong><a href="mailto:andrewmamposte11@gmail.com">andrewmamposte11@gmail.com</a></li>
+            <li><strong>Facebook</strong>Andrew Mamposte</li>
+            <li><strong>School</strong>Mindoro State University (MINSU)</li>
+          </ul>
+        </div>
+
+        <!-- Contact form: pressing Send opens the visitor's email app with the message filled in -->
+        <div>
+          <h3>Send a Message</h3>
+          <form id="contact-form" action="mailto:andrewmamposte11@gmail.com" method="post" enctype="text/plain">
+
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="Name" required>
+
+            <label for="email">Your email</label>
+            <input type="email" id="email" name="Email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" required></textarea>
+
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Andrew Mamposte &middot; BSIT, Mindoro State University</p>
+  </footer>
+
+  <!-- Back-to-top button (stays at the bottom-right corner while scrolling) -->
+  <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
+
+</body>
+</html>

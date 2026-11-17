@@ -1,0 +1,378 @@
+/* ==========================================================
+   style.css – External stylesheet for Andrew Mamposte's portfolio
+   Linked by: index.html
+   Theme: dark mode with cyan, purple and pink accents (gamer style)
+   ========================================================== */
+
+/* ---------- 1. Colors and fonts (change these to restyle the whole site) ---------- */
+:root {
+  --bg: #0b0c18;          /* page background */
+  --surface: #151731;     /* cards and panels */
+  --border: #2a2d57;      /* thin outlines */
+  --text: #e7e9fb;        /* main text */
+  --muted: #9aa0c7;       /* secondary text */
+  --cyan: #22e5ff;        /* main accent */
+  --purple: #a56bff;      /* second accent */
+  --pink: #ff4fa3;        /* third accent */
+
+  --font-head: "Rajdhani", "Segoe UI", Arial, sans-serif;
+  --font-body: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- 2. Base styles ---------- */
+* { box-sizing: border-box; }   /* width includes padding and border */
+
+html { scroll-behavior: smooth; }   /* smooth jump when clicking menu links */
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  line-height: 1.15;
+  margin: 0 0 0.6rem;
+}
+
+h1 { font-size: clamp(2.6rem, 6vw, 4rem); }
+h2 { font-size: 2.4rem; color: var(--cyan); }
+h3 { font-size: 1.35rem; }
+
+p { margin: 0 0 1rem; }
+
+/* Small gradient line under each big section title */
+h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin-top: 0.4rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
+}
+
+/* ---------- 3. Animated background (CSS only, no JavaScript) ---------- */
+
+/* Layer 1: soft glowing color clouds that slowly drift */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(165, 107, 255, 0.32), transparent 40%),
+    radial-gradient(circle at 85% 25%, rgba(34, 229, 255, 0.24), transparent 40%),
+    radial-gradient(circle at 50% 95%, rgba(255, 79, 163, 0.22), transparent 45%);
+  background-size: 140% 140%;
+  animation: drift 16s ease-in-out infinite alternate;
+}
+
+/* Layer 2: thin grid lines that slowly scroll, like a game map */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(34, 229, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 229, 255, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  animation: grid-scroll 25s linear infinite;
+}
+
+@keyframes drift {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes grid-scroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 44px 44px; }
+}
+
+/* ---------- 4. Links (pseudo-classes, in the order link, visited, hover, active) ---------- */
+a:link    { color: var(--cyan); text-decoration: none; }
+a:visited { color: var(--purple); text-decoration: none; }
+a:hover   { color: #ffffff; text-decoration: underline; }
+a:active  { color: var(--pink); }
+
+/* Keyboard focus outline, helps accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+/* ---------- 5. Header and navigation ---------- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding: 1rem 2rem;
+  background-color: rgba(11, 12, 24, 0.92);
+  border-bottom: 1px solid var(--border);
+  position: sticky;   /* header stays at the top while scrolling */
+  top: 0;
+  z-index: 10;
+}
+
+.logo { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; letter-spacing: 0.04em; }
+.logo a:link, .logo a:visited { color: var(--text); }
+.logo .dot { color: var(--cyan); }
+
+.site-nav { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.site-nav a {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.3rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.site-nav a:link, .site-nav a:visited { color: var(--muted); }
+.site-nav a:hover { color: #ffffff; text-decoration: none; border-color: var(--purple); }
+
+/* ---------- 6. Layout helpers ---------- */
+.container { max-width: 1050px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Each section of the page. scroll-margin-top keeps titles from hiding under the sticky header. */
+.page-section { padding-top: 4.5rem; padding-bottom: 2rem; scroll-margin-top: 3rem; }
+
+.section-intro { color: var(--muted); max-width: 55ch; margin-bottom: 2rem; }
+.section-title { margin-bottom: 1.5rem; }
+.sub-title { font-size: 1.7rem; color: var(--purple); margin: 3rem 0 1rem; }
+
+/* ---------- 7. Home section ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 3rem;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.hero .hello { color: var(--purple); font-family: var(--font-head); font-size: 1.4rem; font-weight: 600; margin-bottom: 0.25rem; }
+.hero .tagline { color: var(--muted); font-size: 1.15rem; max-width: 50ch; }
+
+/* Name with a moving gradient */
+.hero h1 span {
+  background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink), var(--cyan));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 8s linear infinite;
+}
+
+@keyframes shine { to { background-position: 300% 0; } }
+
+/* Profile picture (images/profile.jpg) */
+.photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid var(--cyan);
+  box-shadow: 0 0 0 6px var(--bg), 0 0 0 8px var(--purple), 0 0 40px rgba(165, 107, 255, 0.35);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0);     box-shadow: 0 0 0 6px var(--bg), 0 0 0 8px var(--purple), 0 0 30px rgba(165, 107, 255, 0.30); }
+  50%      { transform: translateY(-10px); box-shadow: 0 0 0 6px var(--bg), 0 0 0 8px var(--pink),   0 0 55px rgba(255, 79, 163, 0.45); }
+}
+
+/* Buttons */
+.btn-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.75rem; }
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 0.6rem 1.6rem;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+a.btn:link, a.btn:visited, button.btn { color: var(--bg); background: linear-gradient(90deg, var(--cyan), var(--purple)); }
+a.btn:hover, button.btn:hover { color: #ffffff; background: linear-gradient(90deg, var(--purple), var(--pink)); text-decoration: none; box-shadow: 0 0 22px rgba(255, 79, 163, 0.5); }
+a.btn.outline:link, a.btn.outline:visited { color: var(--cyan); background: transparent; border-color: var(--cyan); }
+a.btn.outline:hover { color: #ffffff; background: linear-gradient(90deg, var(--purple), var(--pink)); border-color: transparent; }
+
+/* Quick facts row */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 4rem; }
+
+.fact { padding: 1.2rem 1.4rem; background-color: rgba(21, 23, 49, 0.78); border: 1px solid var(--border); border-left: 4px solid var(--purple); border-radius: 6px; }
+.fact:nth-child(2) { border-left-color: var(--cyan); }
+.fact:nth-child(3) { border-left-color: var(--pink); }
+.fact strong { display: block; font-family: var(--font-head); font-size: 1.3rem; color: var(--cyan); }
+.fact span { color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- 8. Cards (About and Portfolio sections) ---------- */
+.card {
+  background-color: rgba(21, 23, 49, 0.78);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--purple);
+  border-radius: 8px;
+  padding: 1.6rem;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover { border-color: var(--cyan); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(34, 229, 255, 0.18); }
+.card .meta { color: var(--purple); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+
+/* Different top-line color for every card so the page feels less flat */
+.grid .card:nth-child(3n+2) { border-top-color: var(--cyan); }
+.grid .card:nth-child(3n+3) { border-top-color: var(--pink); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
+
+/* Project images (images/project-*.jpg) */
+.thumb { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 6px; margin-bottom: 1rem; }
+
+.project-tag { display: inline-block; margin-top: 0.4rem; padding: 0.1rem 0.7rem; font-size: 0.85rem; background-color: rgba(165, 107, 255, 0.25); border-radius: 4px; }
+
+/* ---------- 9. About section ---------- */
+.about-top { display: grid; grid-template-columns: 240px 1fr; gap: 2.5rem; align-items: start; }
+
+.skill-list { display: flex; flex-wrap: wrap; gap: 0.75rem; padding: 0; margin: 0; list-style: none; }
+
+.skill-list li {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.35rem 1.1rem;
+  border: 1px solid var(--cyan);
+  border-radius: 999px;
+  color: var(--cyan);
+}
+
+.skill-list li:nth-child(3n+2) { border-color: var(--purple); color: var(--purple); }
+.skill-list li:nth-child(3n+3) { border-color: var(--pink); color: var(--pink); }
+
+/* ---------- 10. Contact section ---------- */
+.contact-layout { display: grid; grid-template-columns: 1fr 1.3fr; gap: 2.5rem; }
+
+.contact-list { list-style: none; padding: 0; margin: 0; }
+.contact-list li { margin-bottom: 1rem; }
+.contact-list strong { display: block; color: var(--purple); font-family: var(--font-head); font-size: 1.1rem; }
+
+/* The form uses an ID because there is only one form on the page */
+#contact-form label { display: block; font-weight: 600; margin: 0 0 0.3rem; }
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  margin-bottom: 1.1rem;
+  padding: 0.7rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text);
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus { border-color: var(--cyan); outline: none; }
+
+#contact-form textarea { min-height: 150px; resize: vertical; }
+
+/* ---------- 11. Footer ---------- */
+.site-footer { text-align: center; margin-top: 4rem; padding: 1.75rem 1rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+
+/* ---------- 12. Back-to-top button ---------- */
+.back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 50%;
+  z-index: 20;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+a.back-to-top:link, a.back-to-top:visited { color: var(--bg); background: linear-gradient(135deg, var(--cyan), var(--purple)); }
+a.back-to-top:hover { color: #ffffff; background: linear-gradient(135deg, var(--purple), var(--pink)); text-decoration: none; transform: translateY(-4px); box-shadow: 0 0 22px rgba(255, 79, 163, 0.55); }
+
+/* ---------- 13. Scroll effects (CSS only) ----------
+   These run only in browsers that support scroll-driven animations (Chrome and Edge).
+   Other browsers show everything normally, so nothing breaks. */
+@supports (animation-timeline: scroll()) {
+
+  /* Progress bar under the header that grows as you scroll down */
+  .site-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
+    transform-origin: left;
+    animation: progress linear both;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes progress {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  /* Back-to-top button fades in after you start scrolling */
+  .back-to-top {
+    animation: show-button linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0px 150px;
+  }
+
+  @keyframes show-button {
+    from { opacity: 0; pointer-events: none; }
+    to   { opacity: 1; pointer-events: auto; }
+  }
+
+  /* Reveal effect: items slide up and fade in as they enter the screen */
+  .card, .fact, .section-title, .sub-title, .contact-layout > div {
+    animation: reveal linear backwards;
+    animation-timeline: view();
+    animation-range: entry 0% entry 45%;
+  }
+
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(50px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ---------- 14. Turn off animations for users who prefer less motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  body::before, body::after, .photo, .hero h1 span,
+  .site-header::after, .back-to-top, .card, .fact, .section-title, .sub-title, .contact-layout > div { animation: none; }
+  .card { transition: none; }
+}
+
+/* ---------- 15. Mobile layout (screens 800px wide or smaller) ---------- */
+@media (max-width: 800px) {
+  .site-header { padding: 0.9rem 1.25rem; }
+  .hero, .about-top, .contact-layout { grid-template-columns: 1fr; }
+  .hero .photo { max-width: 300px; order: -1; }   /* photo shows first on phones */
+  .about-top .photo { max-width: 220px; }
+  .page-section { padding-top: 3.5rem; scroll-margin-top: 5rem; }
+}
